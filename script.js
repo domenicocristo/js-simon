@@ -24,7 +24,7 @@ while (randomNumbers.length < 5) {
 }
 containerNumbers.innerHTML = randomNumbers;
 
-setTimeout(myFunction, 3000);
+setTimeout(myFunction, 30000);
 
 function myFunction() {
     document.getElementById('container').style.display='none';
