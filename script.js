@@ -13,7 +13,7 @@ for (let i = 0; i < 5; i++) {
 
     setTimeout(myFunction, 3000);
     function myFunction() {
-        document.getElementById('container-numbers').style.display='none';
+        document.getElementById('container').style.display='none';
         let userNum =  prompt("Inserisci numero");
         userNumbers.push(userNum);
     }
