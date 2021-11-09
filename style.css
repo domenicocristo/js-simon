@@ -4,3 +4,7 @@
     box-sizing: border-box;
 }
 
+#container h1 {
+    text-align: center;
+    margin-top: 100px;
+}
