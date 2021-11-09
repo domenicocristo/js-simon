@@ -3,34 +3,37 @@
 // 2. dopo 30 secondi l'utente deve inserire i numeri visti precedentemente 
 // 3. dare un riscontro dei numeri indovinati
 
-let containerNumbers = document.getElementById("container-numbers");
-let randomNumbers = [];
-let userNumbers = [];
+const containerNumbers = document.getElementById("container-numbers");
+const feedback = document.getElementById("feedback");
+const randomNumbers = [];
+const userNumbers = [];
 
-for (let i = 0; i < 5; i++) {
-    var num = Math.floor(Math.random() * 100);
-    randomNumbers.push(num);
+while (randomNumbers.length < 5) {
+    const num = Math.floor(Math.random() * 100) + 1;
+    let duplicateNum = false;
 
-    setTimeout(myFunction, 3000);
-    function myFunction() {
-        document.getElementById('container').style.display='none';
-        let userNum =  prompt("Inserisci numero");
-        userNumbers.push(userNum);
+    for (i = 0; i < randomNumbers.length; i++) {
+        if (num === randomNumbers[i]) {
+            duplicateNum = true;
+        }
+    }
+
+    if (duplicateNum == false) {
+        randomNumbers.push(num);
     }
 }
 containerNumbers.innerHTML = randomNumbers;
 
-let feedback = document.getElementById("feedback");
-let numValidator = false;
+setTimeout(myFunction, 3000);
 
-for (let i = 0; i < userNumbers.length; i++) {
-    if (userNumbers == randomNumbers[i]) {
-        numValidator = true;
+function myFunction() {
+    document.getElementById('container').style.display='none';
+    for (let i = 0; i < 5; i++) {
+        let userNum =  prompt("Inserisci numero");
+        userNumbers.push(userNum);
+
+        if (userNumbers[i] == randomNumbers[i]) {
+            feedback.innerHTML += userNumbers[i] + ", ";
+        }
     }
-}
-
-if (numValidator === true) {
-    feedback.innerHTML = num;
-} else {
-
 }
