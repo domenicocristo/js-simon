@@ -7,6 +7,8 @@ const containerNumbers = document.getElementById("container-numbers");
 const feedback = document.getElementById("feedback");
 const randomNumbers = [];
 const userNumbers = [];
+console.log(randomNumbers);
+console.log(userNumbers);
 
 while (randomNumbers.length < 5) {
     const num = Math.floor(Math.random() * 100) + 1;
@@ -24,16 +26,16 @@ while (randomNumbers.length < 5) {
 }
 containerNumbers.innerHTML = randomNumbers;
 
-setTimeout(myFunction, 30000);
+setTimeout(myFunction, 3000);
 
 function myFunction() {
     document.getElementById('container').style.display='none';
     for (let i = 0; i < 5; i++) {
         let userNum =  prompt("Inserisci numero");
-        userNumbers.push(userNum);
 
-        if (userNumbers[i] == randomNumbers[i]) {
-            feedback.innerHTML += userNumbers[i] + ", ";
+        if (randomNumbers.includes(userNum)) {   
+            userNumbers.push(userNum);   
+            feedback.innerHTML += userNumbers + ", ";
         }
     }
 }
