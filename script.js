@@ -31,11 +31,12 @@ setTimeout(myFunction, 3000);
 function myFunction() {
     document.getElementById('container').style.display='none';
     for (let i = 0; i < 5; i++) {
-        let userNum =  prompt("Inserisci numero");
+        let userNum =  parseInt(prompt("Inserisci numero"));
 
         if (randomNumbers.includes(userNum)) {   
             userNumbers.push(userNum);   
-            feedback.innerHTML += userNumbers + ", ";
         }
     }
+    
+    feedback.innerHTML += userNumbers + ", ";
 }
